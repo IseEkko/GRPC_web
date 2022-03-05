@@ -15,6 +15,7 @@ func InitSrvConn2() {
 		fmt.Sprintf("consul://%s:%d/%s?wait=14s", global.ServerConfig.ConsulConfig.Host, global.ServerConfig.ConsulConfig.Port, global.ServerConfig.UserSrvConfig.Name),
 		grpc.WithInsecure(),
 		grpc.WithDefaultServiceConfig(`{"loadBalancingPolicy": "round_robin"}`))
+	fmt.Println(global.ServerConfig)
 	if err != nil {
 		zap.S().Fatal("【InitSrvConn2】连接【用户服务失败")
 	}
