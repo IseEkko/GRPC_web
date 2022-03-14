@@ -78,11 +78,8 @@ func InitConfig() {
 	//上面就是获取配置文件
 
 	//我这里将json转换成struct
-	serverconfig := config.ServerConfig{}
-	err = json.Unmarshal([]byte(content), &serverconfig)
+	err = json.Unmarshal([]byte(content), &global.ServerConfig)
 	if err != nil {
 		zap.S().Fatal("读取nacos配置失败", err.Error())
 	}
-	fmt.Println(serverconfig)
-
 }
